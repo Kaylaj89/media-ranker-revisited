@@ -9,7 +9,7 @@ describe UsersController do
     end
 
     it "can log in a new user" do
-      new_user = User.new(username: "Kayla-Bayla", provider: "github", avatar: "Some string", email: "kayla@kaylabayla.org")
+      new_user = User.new(uid: "111111",username: "Kayla-Bayla", provider: "github", avatar: "Some string", email: "kayla@kaylabayla.org")
       expect {
       logged_in_user = perform_login(new_user)
       }.must_change "User.count", 1
