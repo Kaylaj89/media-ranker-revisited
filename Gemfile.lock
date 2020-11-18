@@ -158,15 +158,11 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     msgpack (1.3.3)
-<<<<<<< HEAD
-    msgpack (1.3.3-java)
-    msgpack (1.3.3-x64-mingw32)
-    msgpack (1.3.3-x86-mingw32)
-=======
+
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
->>>>>>> origin/master
+
     nenv (0.3.0)
     nio4r (2.5.4)
     nio4r (2.5.4-java)
