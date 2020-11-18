@@ -34,13 +34,11 @@
         </li>
       </ul>
       <ul class="nav app-header__user-nav-container">
-        <% if @login_user.nil? %>
+        <% if @current_user.nil? %>
         <li class="nav-item app-header__nav_item">
           <%= link_to "Log In",  github_login_path, class: "btn btn-primary" %>
         <% else %>
           <%= link_to "Log Out", logout_path, method: :post, class: "btn btn-primary" %>
-        </li>
-        <li class="nav-item app-header__nav_item">
         </li>
         <% end %>
 
