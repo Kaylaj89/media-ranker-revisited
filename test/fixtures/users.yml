@@ -5,3 +5,17 @@ dan:
 
 kari:
   username: kari
+
+ada:
+  provider: github
+  uid: 12345
+  email: ada@adadev.org
+  username: ada
+  avatar: nil
+
+  dee:
+    provider: github
+    uid: 111
+    email: dee@delrosario.name
+    username: tildeee
+    avatar: nil

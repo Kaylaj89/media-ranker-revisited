@@ -22,4 +22,27 @@ class ActiveSupport::TestCase
   def setup
     OmniAuth.config.test_mode = true
   end
+
+  def mock_auth_hash(user)
+    return {
+    provider: user.provider,
+        uid: user.uid,
+        info: {
+            email: user.email,
+            image: user.avatar
+    }
+    }
+  end
+
+  def perform_login(user = nil)
+    user ||= User.first
+    OmniAuth.config.mock_auth[:github] =  OmniAuth::AuthHash.new(mock_auth_hash(user))
+
+    #Act Try to call the callback route
+    get auth_callback_path(:github)
+
+    #Assert - Verify the user ID was saved-if that didn't work, this test is invalid
+    expect(session[:user_id]).must_equal user.id
+    return user
+  end
 end
