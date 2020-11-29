@@ -18,5 +18,21 @@ describe UsersController do
     end
   end
 
+  describe "logout" do
+    it "can logout an existing user" do
+      #Arrange
+      perform_login
+
+      expect(session[:user_id]).wont_be_nil
+
+      delete logout_path, params: {}
+
+      expect(session[:user_id]).must_be_nil
+      must_respond_with :redirect
+    end
+
+    it "flashes alert for guests trying to logout"
+  end
+
 
 end

@@ -4,7 +4,8 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
   validates :uid, uniqueness: { scope: :provider }
-  # validates :username, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :provider, presence: true
 
 
   def self.build_from_github(auth_hash)

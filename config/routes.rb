@@ -7,14 +7,19 @@ Rails.application.routes.draw do
   #Omniauth Github callback route
   get "/auth/:provider/callback", to: "users#create", as: "omniauth_callback"
 
+  delete "/logout", to: "users#logout", as: "logout"
+
 
   root "works#root"
+
   # get "/login", to: "users#login_form", as: "login"
   # post "/login", to: "users#login"
-  delete "/logout", to: "users#destroy", as: "logout"
+
+  # get "/users/current", to: "users#current", as: "current_user"
+  # get "/users/create", to: "users#create", as: "create_user"
 
   resources :works
   post "/works/:id/upvote", to: "works#upvote", as: "upvote"
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :destroy]
 end

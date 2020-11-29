@@ -13,9 +13,9 @@ ada:
   username: ada
   avatar: nil
 
-  dee:
-    provider: github
-    uid: 111
-    email: dee@delrosario.name
-    username: tildeee
-    avatar: nil
+dee:
+  provider: github
+  uid: 111
+  email: dee@delrosario.name
+  username: tildeee
+  avatar: nil
