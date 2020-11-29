@@ -28,9 +28,10 @@ class ActiveSupport::TestCase
     provider: user.provider,
         uid: user.uid,
         info: {
+            nickname: user.username,
             email: user.email,
             image: user.avatar
-    }
+    },
     }
   end
 
@@ -40,6 +41,9 @@ class ActiveSupport::TestCase
 
     #Act Try to call the callback route
     get omniauth_callback_path(:github)
+
+    user = User.find_by(uid: user.uid, username: user.username)
+    expect(user).wont_be_nil
 
     #Assert - Verify the user ID was saved-if that didn't work, this test is invalid
     expect(session[:user_id]).must_equal user.id
